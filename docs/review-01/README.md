@@ -15,6 +15,6 @@
 | 待补信息.md | 所有需要小组提供的字段 |
 | check_frontend.py / frontend-check.txt | 前端文件及语法检查脚本、实际结果 |
 
-[固定Wiki Home](https://github.com/LittleChenLiya/online-shopping-mvp/wiki) · [首次报告](https://github.com/LittleChenLiya/online-shopping-mvp/wiki/%E7%AC%AC1%E6%AC%A1%E9%98%B6%E6%AE%B5%E6%80%A7%E8%AF%84%E5%AE%A1%E6%8A%A5%E5%91%8A) · [资料下载](https://github.com/LittleChenLiya/online-shopping-mvp/releases/tag/v0.1.1-review01)
+[固定Wiki Home](https://github.com/LittleChenLiya/online-shopping-mvp/wiki) · [首次报告](https://github.com/LittleChenLiya/online-shopping-mvp/wiki/%E7%AC%AC1%E6%AC%A1%E9%98%B6%E6%AE%B5%E6%80%A7%E8%AF%84%E5%AE%A1%E6%8A%A5%E5%91%8A) · [资料下载](https://github.com/LittleChenLiya/online-shopping-mvp/releases/tag/v0.1.2-review01)
 
 组员后端仍由本人上传。当前文件不包含他人的业务代码、不声称完整系统已验收。请先填齐空白字段、核实实际完成情况和新合入代码，再正式提交。PPT备注可在PowerPoint的备注页或演讲者视图查看。
