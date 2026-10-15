@@ -18,7 +18,6 @@ jobs:
     env:
       PYTHONUTF8: '1'
       PYTHONDONTWRITEBYTECODE: '1'
-      SHOP_TEST_TEMP_DIR: ${{ runner.temp }}/shopping-tests
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -28,6 +27,8 @@ jobs:
         with:
           node-version: '22'
       - name: 回归与验收测试
+        env:
+          SHOP_TEST_TEMP_DIR: ${{ runner.temp }}/shopping-tests
         run: python "06_系统测试/run_tests.py" --executor "GitHub Actions" --execution-mode "CI自动执行"
       - name: 前端语法检查
         if: always()
