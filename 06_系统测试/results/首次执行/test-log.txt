@@ -1,0 +1,50 @@
+test_authentication_and_password (test_system.ShoppingTest.test_authentication_and_password) ... ok
+test_concurrent_publish (test_system.ShoppingTest.test_concurrent_publish) ... ok
+test_full_workflow_and_history (test_system.ShoppingTest.test_full_workflow_and_history) ... ok
+test_persistence (test_system.ShoppingTest.test_persistence) ... ok
+test_request_guards (test_system.ShoppingTest.test_request_guards) ... ERROR
+test_validation_and_duplicate_intent (test_system.ShoppingTest.test_validation_and_duplicate_intent) ... ok
+test_concurrent_duplicate_intent (test_acceptance.AcceptanceTests.test_concurrent_duplicate_intent)
+A01：同一买家并发提交，恰好一条意向被保存。 ... ok
+test_concurrent_freeze_selects_one_buyer (test_acceptance.AcceptanceTests.test_concurrent_freeze_selects_one_buyer)
+A02：两位买家同时被冻结，只能选中其中一位。 ... ok
+test_conflicting_trade_results_are_consistent (test_acceptance.AcceptanceTests.test_conflicting_trade_results_are_consistent)
+A03：成功与失败并发请求，最多执行一个且多表状态一致。 ... ok
+test_limits_do_not_create_product (test_acceptance.AcceptanceTests.test_limits_do_not_create_product)
+A07：超长名称/描述、超大图片不能生成商品记录。 ... ok
+test_malformed_requests (test_acceptance.AcceptanceTests.test_malformed_requests)
+A05：非法JSON、非对象JSON和超长请求头长度被拒绝。 ... ok
+test_rejected_operation_does_not_change_state (test_acceptance.AcceptanceTests.test_rejected_operation_does_not_change_state)
+A04：无效意向导致冻结失败，不改变商品、意向及日志。 ... ok
+test_special_characters_are_saved_as_data (test_acceptance.AcceptanceTests.test_special_characters_are_saved_as_data)
+A08：含引号的名称按数据保存，不改变SQL结构。 ... ok
+test_static_files_and_private_paths (test_acceptance.AcceptanceTests.test_static_files_and_private_paths)
+A06：前端静态文件可达，数据库和任意源码路径不公开。 ... ok
+
+======================================================================
+ERROR: test_request_guards (test_system.ShoppingTest.test_request_guards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\18375\Desktop\软件工程实践作业\05_卖家账号与系统集成\test_system.py", line 156, in test_request_guards
+    self.assertEqual(self.request('/api/login',data,headers={'X-Requested-With':''})[0],403)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\18375\Desktop\软件工程实践作业\05_卖家账号与系统集成\test_system.py", line 63, in request
+    response = client.getresponse()
+               ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "D:\Python\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+
+----------------------------------------------------------------------
+Ran 14 tests in 10.475s
+
+FAILED (errors=1)

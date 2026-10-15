@@ -110,10 +110,11 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser(description='在线购物系统（基线需求）')
     parser.add_argument('--port', type=int, default=8000)
+    parser.add_argument('--host', default='127.0.0.1', help='默认仅本机；容器内可指定 0.0.0.0')
     args = parser.parse_args()
     initialize(security.hash_password(os.environ.get('SHOP_INITIAL_PASSWORD', 'seller12345')))
-    server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
-    print(f'系统已启动：http://127.0.0.1:{args.port}', flush=True)
+    server = ThreadingHTTPServer((args.host, args.port), Handler)
+    print(f'系统已启动：http://{args.host}:{args.port}', flush=True)
     print('首次账号：seller；初始密码：seller12345（可通过环境变量指定）。按 Ctrl+C 停止。', flush=True)
     try:
         server.serve_forever()

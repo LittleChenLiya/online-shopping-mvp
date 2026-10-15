@@ -1,0 +1,67 @@
+{
+  "time": "2026-10-15T10:17:14+08:00",
+  "python": "3.12.10",
+  "total": 14,
+  "passed": 13,
+  "failures": 0,
+  "errors": 1,
+  "success": false,
+  "cases": {
+    "test_system.ShoppingTest.test_authentication_and_password": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_concurrent_publish": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_full_workflow_and_history": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_persistence": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_request_guards": {
+      "status": "ERROR",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\18375\\Desktop\\软件工程实践作业\\05_卖家账号与系统集成\\test_system.py\", line 156, in test_request_guards\n    self.assertEqual(self.request('/api/login',data,headers={'X-Requested-With':''})[0],403)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\18375\\Desktop\\软件工程实践作业\\05_卖家账号与系统集成\\test_system.py\", line 63, in request\n    response = client.getresponse()\n               ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\http\\client.py\", line 1430, in getresponse\n    response.begin()\n  File \"D:\\Python\\Lib\\http\\client.py\", line 331, in begin\n    version, status, reason = self._read_status()\n                              ^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\http\\client.py\", line 292, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\socket.py\", line 720, in readinto\n    return self._sock.recv_into(b)\n           ^^^^^^^^^^^^^^^^^^^^^^^\nConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。\n"
+    },
+    "test_system.ShoppingTest.test_validation_and_duplicate_intent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_concurrent_duplicate_intent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_concurrent_freeze_selects_one_buyer": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_conflicting_trade_results_are_consistent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_limits_do_not_create_product": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_malformed_requests": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_rejected_operation_does_not_change_state": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_special_characters_are_saved_as_data": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_static_files_and_private_paths": {
+      "status": "PASS",
+      "detail": ""
+    }
+  }
+}

@@ -47,8 +47,13 @@ def update_trade(request, data):
                 conn.execute("UPDATE intents SET status=CASE WHEN id=? THEN 'completed' ELSE 'closed' END WHERE product_id=?",
                              (intent_id, product_id))
             else:
-                conn.execute("UPDATE products SET status='active',selected_intent_id=NULL WHERE id=?", (product_id,))
-                conn.execute("UPDATE intents SET status='pending' WHERE id=?", (intent_id,))
+                # 交易失败恢复在售，同时解除商品与当前交易对象的绑定。
+                conn.execute(
+                    "UPDATE products SET status='active',selected_intent_id=NULL WHERE id=?",
+                    (product_id,))
+                # 意向保留并回到待联系状态，卖家以后仍可再次选择该买家。
+                conn.execute(
+                    "UPDATE intents SET status='pending' WHERE id=?", (intent_id,))
         conn.execute('INSERT INTO trade_events(product_id,intent_id,action) VALUES (?,?,?)',
                      (product_id, intent_id, action))
     messages = {'freeze': '商品已冻结，请在线下完成交易',

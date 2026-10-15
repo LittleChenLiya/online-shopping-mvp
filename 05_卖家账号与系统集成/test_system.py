@@ -38,8 +38,12 @@ class ShoppingTest(unittest.TestCase):
         cls.thread.join()
 
     def setUp(self):
-        base = Path('D:/Codex/work/shopping-mvp/tests')
-        base.mkdir(parents=True, exist_ok=True)
+        # 显式配置优先；本机 D 盘可用时避免占用 C，其余系统使用系统临时目录。
+        configured = os.environ.get('SHOP_TEST_TEMP_DIR')
+        base = Path(configured) if configured else (
+            Path('D:/Codex/work/shopping-mvp/tests') if os.name == 'nt' and Path('D:/').exists() else None)
+        if base is not None:
+            base.mkdir(parents=True, exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=base)
         database.DB_PATH = Path(self.temp.name) / 'test.db'
         database.initialize(security.hash_password('seller12345'))

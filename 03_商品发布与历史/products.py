@@ -13,9 +13,11 @@ def parse_price(request, value):
     if not isinstance(value, str) or not re.fullmatch(r'\d{1,7}(\.\d{1,2})?', value):
         raise request.error(400, '价格须为正数，最多两位小数')
     try:
+        # 先用十进制精确解析金额，不用二进制浮点数计算价格。
         amount = Decimal(value)
         if not Decimal('0') < amount <= Decimal('9999999.99'):
             raise InvalidOperation
+        # 数据库存整数分，例如 19.90 元保存为 1990。
         return int(amount * 100)
     except InvalidOperation:
         raise request.error(400, '价格不在有效范围内')

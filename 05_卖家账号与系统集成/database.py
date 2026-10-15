@@ -16,10 +16,12 @@ def connection(write=False):
     conn.execute('PRAGMA foreign_keys=ON')
     try:
         if write:
+            # 提前取得写锁，使业务的“先检查、后更新”不能被其他写请求插入。
             conn.execute('BEGIN IMMEDIATE')
         yield conn
         conn.commit()
     except Exception:
+        # 任一步异常，整个事务一起回滚，避免多表只更新了一部分。
         conn.rollback()
         raise
     finally:

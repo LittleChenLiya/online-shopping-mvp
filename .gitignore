@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+data/
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!.env.example
+.venv/
+dist/
+*.zip
+*.tar
+*.tar.gz
+~$*
+.DS_Store
+Thumbs.db

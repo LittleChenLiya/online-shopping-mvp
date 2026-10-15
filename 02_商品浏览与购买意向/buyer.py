@@ -20,8 +20,10 @@ def submit_intent(request, data):
     if not 6 <= len(contact.lstrip('+')) <= 20:
         raise request.error(400, '电话号码长度不正确')
     note = request.text(data, 'note', 0, 300)
+    # 在同一写事务中检查和保存，防止检查后商品被另一请求冻结。
     with connection(write=True) as conn:
         product = conn.execute('SELECT * FROM products WHERE id=?', (product_id,)).fetchone()
+        # 旧页面也必须服从最新状态：冻结、下架或不存在都不能提交。
         if product is None or product['status'] != 'active':
             raise request.error(409, '商品当前不可购买，请刷新页面')
         try:

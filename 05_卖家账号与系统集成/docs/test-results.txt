@@ -1,0 +1,16 @@
+本机验证：2026-10-07（Asia/Shanghai）
+Python 3.12.10 / Windows
+命令：python 05_卖家账号与系统集成/test_system.py
+退出码：0
+
+test_authentication_and_password (__main__.ShoppingTest.test_authentication_and_password) ... ok
+test_concurrent_publish (__main__.ShoppingTest.test_concurrent_publish) ... ok
+test_full_workflow_and_history (__main__.ShoppingTest.test_full_workflow_and_history) ... ok
+test_persistence (__main__.ShoppingTest.test_persistence) ... ok
+test_request_guards (__main__.ShoppingTest.test_request_guards) ... ok
+test_validation_and_duplicate_intent (__main__.ShoppingTest.test_validation_and_duplicate_intent) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.429s
+
+OK

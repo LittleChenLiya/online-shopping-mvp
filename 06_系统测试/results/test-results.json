@@ -1,0 +1,84 @@
+{
+  "time": "2026-10-15T10:26:53+08:00",
+  "python": "3.12.10",
+  "total": 14,
+  "passed": 13,
+  "failures": 0,
+  "errors": 1,
+  "success": false,
+  "cases": {
+    "test_system.ShoppingTest.test_authentication_and_password": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_concurrent_publish": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_full_workflow_and_history": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_persistence": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_system.ShoppingTest.test_request_guards": {
+      "status": "ERROR",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\18375\\Desktop\\软件工程实践作业\\05_卖家账号与系统集成\\test_system.py\", line 158, in test_request_guards\n    self.assertEqual(self.request('/api/login',data,headers={'Content-Type':'text/plain'})[0],415)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\18375\\Desktop\\软件工程实践作业\\05_卖家账号与系统集成\\test_system.py\", line 63, in request\n    response = client.getresponse()\n               ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\http\\client.py\", line 1430, in getresponse\n    response.begin()\n  File \"D:\\Python\\Lib\\http\\client.py\", line 331, in begin\n    version, status, reason = self._read_status()\n                              ^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\http\\client.py\", line 292, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Python\\Lib\\socket.py\", line 720, in readinto\n    return self._sock.recv_into(b)\n           ^^^^^^^^^^^^^^^^^^^^^^^\nConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。\n"
+    },
+    "test_system.ShoppingTest.test_validation_and_duplicate_intent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_concurrent_duplicate_intent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_concurrent_freeze_selects_one_buyer": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_conflicting_trade_results_are_consistent": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_limits_do_not_create_product": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_malformed_requests": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_rejected_operation_does_not_change_state": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_special_characters_are_saved_as_data": {
+      "status": "PASS",
+      "detail": ""
+    },
+    "test_acceptance.AcceptanceTests.test_static_files_and_private_paths": {
+      "status": "PASS",
+      "detail": ""
+    }
+  },
+  "executor": "庄云月",
+  "execution_mode": "现场由Codex辅助运行与复核",
+  "input_sha256": {
+    "01_前端界面/app.js": "55950bdd215491ee36c672fc6fba9b912d987b29ccb8a94aaf5defbbd4541f11",
+    "01_前端界面/index.html": "11dd6c43f58fafa59679ea4edb60fef40e9006c952553103b9ea470245e59d9d",
+    "01_前端界面/style.css": "8da94fb7e65b45b1a5fc438b06b4bf2a71bb6127eaf69d04c07bdc741b664353",
+    "02_商品浏览与购买意向/buyer.py": "dfccf959c8d61811b3099103a6ac6e8466b8e139392458618e517680f35dad96",
+    "03_商品发布与历史/products.py": "5ba7a1657a78087e297146d7710a5364895266dd754f3b3e65d31f06b0816fb6",
+    "04_交易与冻结管理/trades.py": "38d77acab9b73316e7e14e7a15f1287b947ca7dd8dca62bea4fe2b4ed61ca0e0",
+    "05_卖家账号与系统集成/build.py": "9dab870e7a96d063278821001f14a1eb653d793675818229c13e00bb6baa8104",
+    "05_卖家账号与系统集成/database.py": "ad05993b24df16430d9ba045730e526ed737bd617e37327bc2637fe0d1daad38",
+    "05_卖家账号与系统集成/security.py": "e9c238fb99d5daa961cb4128752522a469d218b3c3be68f696c2c33eddcb0b39",
+    "05_卖家账号与系统集成/server.py": "37b633baeae195b09813d5dda6c15d548ae660c97e83f6388599befa8096b318",
+    "05_卖家账号与系统集成/test_system.py": "da4f425537e7e6fff1ce82c235d91ccf8ff813494e567dcd61f7a1060042da39",
+    "06_系统测试/run_tests.py": "15efdea79dc1c6de097bba5ec193599b89d04b13b5f8c9597ba7de5f970c78d0",
+    "06_系统测试/test_acceptance.py": "612143f71ed7497d0188b5c78344cad900ce0647a28fb8d61b0fe405ef67e3a4"
+  }
+}
