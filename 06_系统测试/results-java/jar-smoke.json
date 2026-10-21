@@ -1,0 +1,31 @@
+﻿{
+    "time":  "2026-10-21T17:46:14.3456487+08:00",
+    "success":  true,
+    "checks":  [
+                   {
+                       "name":  "packaged frontend and API adapter available",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "packaged JAR publishes product",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "changed password survives process restart and alternate initial password",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "product status and exact cents survive restart",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "intent selection and trade event survive restart",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "persisted frozen transaction can complete after restart",
+                       "status":  "PASS"
+                   }
+               ],
+    "jar_sha256":  "43e99a7de2fa8e368b671ac0b9e64cb3c6bfeb98b71dabb6067e808e42375507"
+}

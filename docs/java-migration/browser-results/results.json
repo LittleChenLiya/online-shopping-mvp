@@ -1,0 +1,59 @@
+{
+  "time": "2026-10-21T09:46:19.909Z",
+  "executor": "Codex",
+  "browser": "155.0.4283.62",
+  "channel": "msedge",
+  "success": true,
+  "jar_sha256": "43e99a7de2fa8e368b671ac0b9e64cb3c6bfeb98b71dabb6067e808e42375507",
+  "checks": [
+    {
+      "name": "empty shop renders",
+      "status": "PASS"
+    },
+    {
+      "name": "seller login, image preview and publish",
+      "status": "PASS"
+    },
+    {
+      "name": "buyer submits intent without login",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel confirmation leaves active state unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "freeze blocks buyer form and renders selected trade",
+      "status": "PASS"
+    },
+    {
+      "name": "failed trade restores active state",
+      "status": "PASS"
+    },
+    {
+      "name": "successful trade removes public item, keeps history and permits next product",
+      "status": "PASS"
+    },
+    {
+      "name": "password change requires re-login and new password works",
+      "status": "PASS"
+    },
+    {
+      "name": "rapid route changes finish on latest page",
+      "status": "PASS"
+    },
+    {
+      "name": "logout returns to login page",
+      "status": "PASS"
+    },
+    {
+      "name": "390px mobile product layout has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "no uncaught browser errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

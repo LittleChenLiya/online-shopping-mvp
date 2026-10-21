@@ -1,0 +1,158 @@
+﻿{
+    "time":  "2026-10-21T17:46:08.5456842+08:00",
+    "executor":  "Codex",
+    "mode":  "local Java automated tests",
+    "total":  20,
+    "passed":  20,
+    "cases":  [
+                  {
+                      "class":  "cn.course.shopping.LegacyDatabaseCompatibilityTest",
+                      "name":  "continuesFrozenTradeFromActualPythonDatabaseWithoutResettingPassword",
+                      "status":  "PASS",
+                      "seconds":  "0.575"
+                  },
+                  {
+                      "class":  "cn.course.shopping.PasswordCompatibilityTest",
+                      "name":  "randomSaltAndMalformedHashes",
+                      "status":  "PASS",
+                      "seconds":  "0.121"
+                  },
+                  {
+                      "class":  "cn.course.shopping.PasswordCompatibilityTest",
+                      "name":  "verifiesPbkdf2Sha256KnownVector",
+                      "status":  "PASS",
+                      "seconds":  "0.0"
+                  },
+                  {
+                      "class":  "cn.course.shopping.PasswordCompatibilityTest",
+                      "name":  "verifiesUnicodePasswordFromIndependentImplementation",
+                      "status":  "PASS",
+                      "seconds":  "0.098"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "reinitializeKeepsDataAndChangedPassword",
+                      "status":  "PASS",
+                      "seconds":  "0.993"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "rejectedOperationDoesNotChangeState",
+                      "status":  "PASS",
+                      "seconds":  "0.16"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "fullWorkflowAndHistory",
+                      "status":  "PASS",
+                      "seconds":  "0.255"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "validationAndDuplicateIntent",
+                      "status":  "PASS",
+                      "seconds":  "0.194"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "specialCharactersSavedAsData",
+                      "status":  "PASS",
+                      "seconds":  "0.137"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "rejectsWrongJsonFieldTypesAndCountsUnicodeCharacters",
+                      "status":  "PASS",
+                      "seconds":  "0.144"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "expiredAndForgedSessions",
+                      "status":  "PASS",
+                      "seconds":  "0.127"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "staticFilesAndPrivatePaths",
+                      "status":  "PASS",
+                      "seconds":  "0.088"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "malformedJsonAndBodyLimit",
+                      "status":  "PASS",
+                      "seconds":  "1.085"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "concurrentDuplicateIntent",
+                      "status":  "PASS",
+                      "seconds":  "0.149"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "concurrentPublish",
+                      "status":  "PASS",
+                      "seconds":  "0.127"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "requestGuards",
+                      "status":  "PASS",
+                      "seconds":  "0.056"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "conflictingTradeResultsAreConsistent",
+                      "status":  "PASS",
+                      "seconds":  "0.18"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "concurrentFreezeSelectsOneBuyer",
+                      "status":  "PASS",
+                      "seconds":  "0.17"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "authenticationPasswordAndLogout",
+                      "status":  "PASS",
+                      "seconds":  "0.501"
+                  },
+                  {
+                      "class":  "cn.course.shopping.SystemAcceptanceTest",
+                      "name":  "limitsDoNotCreateProduct",
+                      "status":  "PASS",
+                      "seconds":  "0.229"
+                  }
+              ],
+    "input_sha256":  {
+                         "01_前端界面/api.js":  "0a6c9d4471f340a57672c1ee086de900e4efe7bbc9f6bdad8b58892136b22526",
+                         "01_前端界面/app.js":  "f3b532678c09ae0515f3f87b4ed0d128a7e97ad0cd4c1bf980780e1125bd7868",
+                         "01_前端界面/index.html":  "fc04416cd697b4bcbeef92f7f8d30ed95e58efe77a252f86cd193f8a013f3207",
+                         "01_前端界面/style.css":  "2bdeb40d1912c89bcaf518a569737889545f0d14212445d3d1a5046974636e4a",
+                         "backend-java/src/main/java/cn/course/shopping/account/AccountController.java":  "a994b61bf008de6f1e285008a01bb9ddd1ac4da06555f7701cd014bacdcdfba4",
+                         "backend-java/src/main/java/cn/course/shopping/account/AccountService.java":  "9fb089f073165d4773efa3b7d882cf69e88bdd5a392c4234c54822512e209b04",
+                         "backend-java/src/main/java/cn/course/shopping/account/Passwords.java":  "3e06381de32a8fa804215e4d2bb07750fe9b75492701f52fc768a60215853d01",
+                         "backend-java/src/main/java/cn/course/shopping/buyer/BuyerController.java":  "fd49efe0b5f15d53293d0bc46d36aee9e73c0f8bedabb10f5bc091b0d302cf1e",
+                         "backend-java/src/main/java/cn/course/shopping/buyer/BuyerService.java":  "57cbbd091d4024b909f6afd0e256e7a9bd46933d1b0230d83752b4f5690c6b42",
+                         "backend-java/src/main/java/cn/course/shopping/common/ApiErrors.java":  "a740251592c1067f047ec29101a47453bed5e119a8e776368fa98296ee876ae8",
+                         "backend-java/src/main/java/cn/course/shopping/common/ApiException.java":  "dd59bd0b0829c0a8dd0550f228a0a635619a302865693a963f03dc2ec322d68f",
+                         "backend-java/src/main/java/cn/course/shopping/common/Database.java":  "0c77b6e5c40b3148587d860accdbf518f7ce8836310f16355c7b1a34944ad629",
+                         "backend-java/src/main/java/cn/course/shopping/common/Input.java":  "96929cd39eb68b6fa6e4d672e2f401a15b94bc1cdf5d36d68a91eb5b658922bf",
+                         "backend-java/src/main/java/cn/course/shopping/product/ProductController.java":  "1938d2c7160bf0ca3c749677a4469b2fa6d3c5c07bb828a715c363141ab34b7a",
+                         "backend-java/src/main/java/cn/course/shopping/product/ProductService.java":  "33fb3057a44ab02800afb77a3380b3ab359f35870b6b7ad8bbcb57b9dcd5c2ad",
+                         "backend-java/src/main/java/cn/course/shopping/ShopApplication.java":  "5a100114e3d45d2aa6b9cf75b740293c483804c12a07ef605003fdef971a1044",
+                         "backend-java/src/main/java/cn/course/shopping/trade/TradeController.java":  "6d37466203a5ea683ec3a626bd951af64f6d9a6cb50dc554ad9707a04e931b7a",
+                         "backend-java/src/main/java/cn/course/shopping/trade/TradeService.java":  "7cb04dcb55d5a3d0e729711ee437bd08f70efd351caec7487943bebbb8178292",
+                         "backend-java/src/main/java/cn/course/shopping/web/FrontendController.java":  "1022ac75b9629d8725243373dc649d284b2bd00f542723f5a3ab7de42bd8a6c5",
+                         "backend-java/src/main/java/cn/course/shopping/web/RequestGuard.java":  "34f64c67abe8edc1d067f5b4601313e2e480389e63ff6dd926e393983cd286b7",
+                         "backend-java/src/main/resources/application.properties":  "d1c63ca090446b8566c7f4622286e02110ee97522972b01b83327061512a922f",
+                         "backend-java/src/test/java/cn/course/shopping/LegacyDatabaseCompatibilityTest.java":  "fc5dbefb4ed12e8d067dbc625b60212421401cb7ba1c5f9f2a44ceb6b7c1531d",
+                         "backend-java/src/test/java/cn/course/shopping/PasswordCompatibilityTest.java":  "5e2522e45c19b5987d772c81a3ed53c3dd0694fb21eca89862c596947e4ea63f",
+                         "backend-java/src/test/java/cn/course/shopping/SystemAcceptanceTest.java":  "ef1a0bfe419cc5688c45534ebabdbac58fdb3199753040bdabbafd6af5e0e3c8",
+                         "backend-java/src/test/resources/legacy-stage1.sqlite":  "9bad0561b71bd4ce0f8a3ff451fe4c3113428c5a19d1d842e2a1f9a75803cb2f",
+                         "pom.xml":  "0863535919db57af35ab530c137b9b9191e7304ed66c9a5ca0fad9596412f503",
+                         "backend-java/pom.xml":  "41773ef4ff8bdf7280674834f0336f8f62a7dbf3b5aed80fa48ee11eac07a32b"
+                     }
+}

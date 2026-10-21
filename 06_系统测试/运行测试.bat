@@ -1,5 +1,6 @@
 @echo off
-chcp 65001 >nul
-cd /d "%~dp0"
-python -X utf8 -B run_tests.py
+setlocal
+cd /d "%~dp0.."
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\test.ps1
+if errorlevel 1 exit /b 1
 pause

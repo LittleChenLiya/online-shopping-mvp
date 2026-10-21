@@ -1,0 +1,68 @@
+name: 基线验证与构建
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.10'
+          - os: windows-latest
+            python: '3.12'
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 回归与验收测试
+        env:
+          SHOP_TEST_TEMP_DIR: ${{ runner.temp }}/shopping-tests
+        run: python "06_系统测试/run_tests.py" --executor "GitHub Actions" --execution-mode "CI自动执行"
+      - name: 前端语法检查
+        if: always()
+        run: node --check "01_前端界面/app.js"
+      - name: 构建
+        if: always()
+        run: python "05_卖家账号与系统集成/build.py" --output "${{ runner.temp }}/shopping-build"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-${{ matrix.os }}-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/shopping-build/*.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.os }}-python-${{ matrix.python }}
+          path: 06_系统测试/results/
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 构建并验证 Docker 服务
+        shell: bash
+        run: |
+          docker build -t online-shopping-mvp:0.1.0 .
+          docker run -d --name shopping-check -p 127.0.0.1:8000:8000 online-shopping-mvp:0.1.0
+          trap 'docker logs shopping-check; docker rm -f shopping-check' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:8000/api/product > /tmp/product.json; then break; fi
+            sleep 1
+          done
+          python -c 'import json; assert json.load(open("/tmp/product.json"))["product"] is None'
+          docker save online-shopping-mvp:0.1.0 | gzip > "${RUNNER_TEMP}/online-shopping-mvp-0.1.0-image.tar.gz"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docker-image-0.1.0
+          path: ${{ runner.temp }}/online-shopping-mvp-0.1.0-image.tar.gz

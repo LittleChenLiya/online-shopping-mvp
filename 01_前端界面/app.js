@@ -7,15 +7,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const money = cents => (cents / 100).toFixed(2);
 const badge = status => `<span class="badge ${esc(status)}">${esc(labels[status] || status)}</span>`;
 
-async function api(path, data) {
-  const options = data === undefined ? {} : {method:'POST',headers:{'Content-Type':'application/json','X-Requested-With':'ShopApp'},body:JSON.stringify(data)};
-  // 统一请求和错误处理，页面函数只需关心业务数据。
-  const response = await fetch(path, options);
-  const result = await response.json();
-  // HTTP 失败时抛出后端原因，由表单或页面统一提示。
-  if (!response.ok) throw new Error(result.error || '请求失败');
-  return result;
-}
+const api = (path, data) => ShopApi.request(path, data);
 function toast(message, error=false) {
   const box = document.querySelector('#toast');
   box.textContent = message; box.className = error ? 'error' : ''; box.hidden = false;

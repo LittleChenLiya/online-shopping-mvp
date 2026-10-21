@@ -7,3 +7,7 @@ data
 .env.*
 **/~$*
 dist
+legacy
+**/target
+06_系统测试/results-java
+node_modules
