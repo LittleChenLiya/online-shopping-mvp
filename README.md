@@ -1,10 +1,18 @@
-# 在线购物系统 · Java 版 / 六人接口分工
+# 在线购物系统 · Java 版 / 挑战 A
 
-面向单一卖家：买家免注册浏览商品、提交购买意向；卖家选择买家后冻结商品，线下交易成功则下架，失败则恢复在售。**同时最多一件未售商品**，不含在线支付、购物车、多卖家或配送。
+面向单一卖家的线下交易系统。基线版保留单商品及游客意向流程；挑战 A 新增多商品、两级分类、搜索、多图与格式化描述、数量库存、客户注册登录、购买历史和卖家客户管理。
 
 当前正式源码为 **Java 17 + Spring Boot 3.5.16 + Maven + SQLite**；前端为 HTML/CSS/JavaScript。第一阶段 Python 源码已归档到 `legacy/python-stage1/`，Java 的启动、构建和测试不依赖 Python。
 
-## 启动
+## 挑战 A 启动与规则
+
+Windows 双击 `启动挑战A.cmd`，或执行 `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-challenge-a.ps1`。需要 JDK 17+ 和 Maven，启动后访问 **http://127.0.0.1:8001/challenge-a**。
+
+卖家初始账号 `seller` / `seller12345`；客户自行注册。首次先创建一级及二级分类，再发布商品。默认使用 `data/challenge-a.db`，重启保留数据。
+
+库存规则按待教师确认的假设实现：提交意向不占库存，卖家开始交易时预留数量，成交扣减库存，失败或取消释放预留，剩余库存仍可购买。详细范围、接口及其他待确认事项见 [挑战 A 实现说明](挑战A-实现说明.md)。代码交付不代表教师验收通过。
+
+## 基线版启动
 
 第二次阶段性评审材料已按教师新版模板整理：[固定评审首页](https://github.com/LittleChenLiya/online-shopping-mvp/wiki) · [第2次阶段性评审报告](https://github.com/LittleChenLiya/online-shopping-mvp/wiki/第2次阶段性评审报告) · [可下载Markdown副本与模板核对](docs/review-02/)。
 

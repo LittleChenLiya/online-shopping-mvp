@@ -47,6 +47,7 @@ public class Database {
         write(connection -> {
             for (String ddl : SCHEMA) try (Statement statement = connection.createStatement()) { statement.execute(ddl); }
             update(connection, "INSERT OR IGNORE INTO seller VALUES (1,?,?)", "seller", passwordHash);
+            cn.course.shopping.challenge.ChallengeSchema.initialize(connection);
             return null;
         });
     }

@@ -21,6 +21,10 @@ public class ApiErrors {
     public ResponseEntity<Map<String, String>> malformed(Exception error) {
         return ResponseEntity.badRequest().body(Map.of("error", "JSON 格式错误"));
     }
+    @ExceptionHandler(org.springframework.web.method.annotation.MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Map<String,String>> parameter(Exception error) {
+        return ResponseEntity.badRequest().body(Map.of("error","路径或查询参数格式错误"));
+    }
     @ExceptionHandler({NoHandlerFoundException.class, HttpRequestMethodNotSupportedException.class})
     public ResponseEntity<Map<String, String>> missing(Exception error) {
         return ResponseEntity.status(404).body(Map.of("error", "页面或接口不存在"));

@@ -34,9 +34,10 @@ public class RequestGuard extends OncePerRequestFilter {
             String type = request.getContentType();
             if (type == null || !type.split(";", 2)[0].strip().equalsIgnoreCase("application/json"))
                 throw new ApiException(415, "请求须为 JSON 格式");
-            if (request.getContentLengthLong() > MAX_BODY_BYTES) throw new ApiException(413, "请求内容超过大小限制");
-            byte[] body = request.getInputStream().readNBytes(MAX_BODY_BYTES + 1);
-            if (body.length == 0 || body.length > MAX_BODY_BYTES) throw new ApiException(413, "请求内容为空或超过大小限制");
+            int maximum = request.getRequestURI().equals("/api/a/seller/products") ? 20 * 1024 * 1024 : MAX_BODY_BYTES;
+            if (request.getContentLengthLong() > maximum) throw new ApiException(413, "请求内容超过大小限制");
+            byte[] body = request.getInputStream().readNBytes(maximum + 1);
+            if (body.length == 0 || body.length > maximum) throw new ApiException(413, "请求内容为空或超过大小限制");
             JsonNode data;
             try { data = json.readTree(body); }
             catch (IOException error) { throw new ApiException(400, "JSON 格式错误"); }

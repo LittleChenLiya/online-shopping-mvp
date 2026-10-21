@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 /** 仅开放四个前端资源，数据库、Java 源码及归档文件均不作为静态文件提供。 */
 @RestController
 public class FrontendController {
+    @GetMapping({"/challenge-a", "/challenge-a/"}) public ResponseEntity<ClassPathResource> challenge() { return file("challenge-a.html", "text/html;charset=UTF-8"); }
+    @GetMapping("/challenge-a.js") public ResponseEntity<ClassPathResource> challengeScript() { return file("challenge-a.js", "text/javascript;charset=UTF-8"); }
+    @GetMapping("/challenge-a.css") public ResponseEntity<ClassPathResource> challengeStyle() { return file("challenge-a.css", "text/css;charset=UTF-8"); }
     @GetMapping({"/", "/index.html"}) public ResponseEntity<ClassPathResource> index() { return file("index.html", "text/html;charset=UTF-8"); }
     @GetMapping("/app.js") public ResponseEntity<ClassPathResource> app() { return file("app.js", "text/javascript;charset=UTF-8"); }
     @GetMapping("/api.js") public ResponseEntity<ClassPathResource> api() { return file("api.js", "text/javascript;charset=UTF-8"); }
