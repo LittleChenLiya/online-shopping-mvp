@@ -6,6 +6,8 @@
 
 ## 启动
 
+第二次阶段性评审材料已按教师新版模板整理：[固定评审首页](https://github.com/LittleChenLiya/online-shopping-mvp/wiki) · [第2次阶段性评审报告](https://github.com/LittleChenLiya/online-shopping-mvp/wiki/第2次阶段性评审报告) · [可下载Markdown副本与模板核对](docs/review-02/)。
+
 Windows启动器会把Java日志写到logs/server.log与server-error.log，确认服务就绪后自动打开浏览器，避免终端输出暂停影响网页。使用-NoBrowser可关闭自动打开。运行包提供“停止Java系统.bat”；源码可运行scripts/stop.ps1停止。
 
 需要 **JDK 17+、Maven 3.6.3+**；首次构建需联网下载 Maven 依赖。
