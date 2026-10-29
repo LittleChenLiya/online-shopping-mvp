@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-29",
+  "browser": "156.0.4314.50",
+  "jar_sha256": "03efb8e289223b984b0e9fc2070eff52d23b6782d8d8819e90159828d8b88948",
+  "source": "本地挑战A运行包，实际页面截图；隔离演示数据库；商品、库存和图片均为演示数据",
+  "screenshots": [
+    "01-categories.png",
+    "02-products-stock.png",
+    "03-publish-preview.png",
+    "04-detail.png"
+  ]
+}
