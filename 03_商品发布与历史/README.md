@@ -15,3 +15,8 @@
 商品已售时不删除记录，以便F05历史查询。图片文件头校验不等于完整图像解码。
 
 组长协调接口冻结、审查与真实进度核算，不代替其他成员实际提交。验收关注SystemAcceptanceTest的concurrentPublish、limitsDoNotCreateProduct、fullWorkflowAndHistory等。
+
+## 个人成果展示
+
+[王暾：接口清单、模型协作过程与页面图片](../docs/personal-results/王暾-商品接口与模型协作.md)。包含基线2个接口、挑战A卖家商品与分类6个接口，以及职责和库存协作边界。
+
