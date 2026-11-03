@@ -1,0 +1,12 @@
+A01 PASS two listed products, pagination, name and description search
+A02 PASS two levels, third level rejected, parent filter includes descendants
+Browser 156.0.4314.58
+A03 PASS browser formats description, switches images, escapes injected script
+A04 PASS guest blocked; inventory 5/0/5 after intent and 5/2/3 after freeze
+A05 PASS concurrent freeze returns 200 and 409, available stock stays zero
+A06 PASS failure and cancellation release reservations; sale delists; duplicate sale rejected
+A07 PASS registration validation, profile, password rotation and logout
+A08 PASS customer history scoped to owner and cross-account cancellation denied
+A09 PASS seller customer lookup and unchanged order snapshots after profile edit
+A10 PASS restart preserves categories, login, frozen order and 5/2/3 inventory
+10/10 passed

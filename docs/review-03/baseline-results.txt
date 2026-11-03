@@ -1,0 +1,9 @@
+Date: 2026-11-03
+Application source: 1f7ecdf
+Command: mvn -o -B clean verify (JDK 17)
+JAR SHA-256: 8387732B1C8F3E2F38291306FA526344592BFE2A729761711B6FCF8006EB41ED
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.571 s -- in cn.course.shopping.LegacyDatabaseCompatibilityTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 s -- in cn.course.shopping.PasswordCompatibilityTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.215 s -- in cn.course.shopping.SystemAcceptanceTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
