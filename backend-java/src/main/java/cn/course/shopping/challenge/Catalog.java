@@ -16,7 +16,16 @@ public class Catalog {
     private final AccountService seller;
     public Catalog(Database db,AccountService seller){this.db=db;this.seller=seller;}
     static final String SELECT="SELECT p.*,c.name AS category_name,c.parent_id,r.name AS parent_name,COALESCE((SELECT SUM(o.quantity) FROM a_orders o WHERE o.product_id=p.id AND o.status='frozen'),0) AS reserved FROM a_products p JOIN a_categories c ON c.id=p.category_id LEFT JOIN a_categories r ON r.id=c.parent_id";
-    static Map<String,Object> product(Connection c,long id) throws SQLException {return decorate(c,one(c,SELECT+" WHERE p.id=?",id));}
+    // 允许个人成果先行合并：B表由集成模块创建后再计入B预留。
+    private static String select(Connection c) throws SQLException {
+        Number tables = (Number) one(c,
+            "SELECT count(*) AS n FROM sqlite_master WHERE type='table' AND name IN ('b_orders','b_order_items')").get("n");
+        if (tables.intValue() != 2) return SELECT;
+        return SELECT.replace(" AS reserved", " + COALESCE((SELECT SUM(i.quantity) FROM b_order_items i " +
+            "JOIN b_orders b ON b.id=i.order_id WHERE i.product_id=p.id " +
+            "AND b.status IN ('placed','confirmed','ready')),0) AS reserved");
+    }
+    static Map<String,Object> product(Connection c,long id) throws SQLException {return decorate(c,one(c,select(c)+" WHERE p.id=?",id));}
     private static Map<String,Object> decorate(Connection c,Map<String,Object> row) throws SQLException {
         if(row==null)return null;
         long stock=((Number)row.get("stock")).longValue(), reserved=((Number)row.get("reserved")).longValue();
@@ -81,7 +90,7 @@ public class Catalog {
             if(!q.isEmpty()){where+=" AND instr(lower(p.name||' '||p.description),lower(?))>0";args.add(q);}
             if(category!=null){if(category<=0)throw new ApiException(400,"分类编号须为正整数");where+=" AND (p.category_id=? OR c.parent_id=?)";args.add(category);args.add(category);}
             long total=((Number)one(c,"SELECT count(*) AS n FROM a_products p JOIN a_categories c ON c.id=p.category_id"+where,args.toArray()).get("n")).longValue();
-            args.add(size);args.add((page-1)*size);List<Map<String,Object>> products=rows(c,SELECT+where+" ORDER BY p.id DESC LIMIT ? OFFSET ?",args.toArray());
+            args.add(size);args.add((page-1)*size);List<Map<String,Object>> products=rows(c,select(c)+where+" ORDER BY p.id DESC LIMIT ? OFFSET ?",args.toArray());
             for(Map<String,Object> p:products)decorate(c,p);
             return Map.of("products",products,"total",total,"page",page,"page_size",size);});
     }
