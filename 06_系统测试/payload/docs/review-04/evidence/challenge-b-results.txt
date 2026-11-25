@@ -1,0 +1,13 @@
+B01 PASS login, cart ownership, quantity merge/edit and invalid quantity
+B02 PASS batch move removes cart items and deduplicates favorites
+B03 PASS single multi-item order, price snapshots, total, reservation and retry safety
+B04 PASS insufficient line excluded, successful line ordered, shortage retained; all-shortage creates no order
+B05 PASS five states, no skipped/repeated transitions, owner isolation and cancellation deadlines
+B06 PASS customer pre-shipping cancellation and seller post-shipping cancellation restore inventory once
+B07 PASS concurrent checkouts reserve final unit once; seller cannot lower stock below reservation
+B08 PASS A and B orders share available inventory without overselling
+B09 PASS restart preserves orders, events, cart, favorites and reservation; profile edits preserve snapshots
+B10 PASS seller directory statistics, customer filter and seller authorization
+B11 PASS cancellation at placed/confirmed/ready; batch rollback; sellout delisting and cancellation restock
+B12 PASS browser login, add-to-cart, selected checkout, order details and seller management; no page errors
+12/12 passed
