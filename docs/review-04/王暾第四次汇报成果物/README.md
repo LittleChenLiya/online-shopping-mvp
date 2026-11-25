@@ -1,17 +1,13 @@
 # 王暾 · 第四次汇报独立成果物
 
-本目录对应第4次阶段性评审，主题为挑战B共享库存及需求规格。本轮由Codex按既定分工协助实现和验证，成员复核所属部件后汇报。
+本轮范围为商品库存共享及需求评审材料，对应挑战B。本目录按第4次评审单独归档，包含个人说明与本轮文件快照。快照路径对应仓库目录，运行需要完整集成项目。
 
-- [个人成果说明](王暾第四次个人成果说明.md)逐部件说明作用、输入、处理、输出和依赖。
-- [库存源码](源码/Catalog.java)为本轮交付版本，上传源码时对应仓库backend-java/src/main/java/cn/course/shopping/challenge/Catalog.java。
-- [挑战B需求规格](挑战B需求规格说明书.md)记录课程要求、两项澄清及本版边界约定。
-- [验证摘要](验证摘要.md)记录单独合并和完整集成两种环境的验证结果。
+- [个人部件说明](王暾第四次个人成果说明.md)
 
-## 现场讲解顺序
+## 本轮文件快照
 
-1. 说明A冻结意向和B发货前订单为什么需要共同计算预留。
-2. 讲解select(Connection)检测B表，再选择兼容查询的处理。
-3. 讲解reserved、available与商品状态如何派生，卖家调整库存如何沿用约束。
-4. 用最后1件商品的A/B并发场景解释验证结果。
+- [backend-java/src/main/java/cn/course/shopping/challenge/Catalog.java](文件快照/backend-java/src/main/java/cn/course/shopping/challenge/Catalog.java)
+- [docs/review-04/第四次阶段性评审报告.md](文件快照/docs/review-04/第四次阶段性评审报告.md)
+- [docs/review-04/挑战B需求规格说明书.md](文件快照/docs/review-04/挑战B需求规格说明书.md)
 
-源码文件包含原有商品管理代码，本次新增内容集中在select(Connection)及查询调用处。个人说明明确标注复用部件和本次变更。
+本轮完整集成验证为基线20项、挑战A10组、挑战B12组通过，模块责任与具体证据见个人说明。
